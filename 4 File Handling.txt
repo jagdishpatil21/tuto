@@ -226,3 +226,55 @@ Explantion :
    }
    ```
    - Return 0 to indicate successful execution. This marks the end of the program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. **File Handling:**
+   File handling is the process of working with files, enabling reading from and writing to files in a program.
+
+2. **Benefits of File Handling:**
+   - Data Persistence
+   - Data Sharing
+   - Data Backup
+   - Data Organization
+
+3. **`fstream` Class:**
+   `fstream` is a C++ class for file handling, combining input (`ifstream`) and output (`ofstream`) capabilities.
+
+4. **Creating an `fstream` Object:**
+   ```cpp
+   std::fstream file("filename.txt", std::ios::in | std::ios::out);
+   ```
+
+5. **`read()` Syntax:**
+   ```cpp
+   istream& read(char* buffer, streamsize n);
+   ```
+
+6. **`write()` Syntax:**
+   ```cpp
+   ostream& write(const char* buffer, streamsize n);
+   ```
