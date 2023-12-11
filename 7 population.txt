@@ -70,7 +70,7 @@ Algorithm:
 5. Display the population of states.
 6. End.
 
-
+TC : O(log n)
 
 
 
