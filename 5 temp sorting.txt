@@ -78,7 +78,7 @@ and take a input for both the arrays and call sorting function
 template to sort thenumber.
 5. Stop
 
-
+TC : O(n^2).
 
 
 
