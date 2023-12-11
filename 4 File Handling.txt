@@ -97,6 +97,7 @@ Algorithm :
 5. **End of Program:**
    - Return 0 to indicate successful execution.
 
+TC : O(1)
 
 
 
