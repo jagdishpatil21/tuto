@@ -240,6 +240,58 @@ Explanation :
 
 28. `myTape.displayData();`: Calls the `displayData` function for the `myTape` object, displaying tape information.
 
+
+
+
+
+
+
+
+
+
+
+1. **Inheritance:**
+   Inheritance is a feature in object-oriented programming that allows a class (subclass/derived class) to inherit properties and behaviors from another class (superclass/base class), fostering code reusability.
+
+2. **Types of Inheritance:**
+   - Single Inheritance
+   - Multiple Inheritance
+   - Hierarchical Inheritance
+   - Multilevel Inheritance
+   - Hybrid Inheritance
+
+3. **Single Inheritance:**
+   A class inherits from only one base class.
+
+4. **Multiple Inheritance:**
+   A class inherits from more than one base class.
+
+5. **Hierarchical Inheritance:**
+   Multiple classes inherit from a single base class.
+
+6. **Multilevel Inheritance:**
+   A chain of inheritance where a derived class serves as a base class for another class.
+
+7. **Hybrid Inheritance:**
+   A combination of multiple and hierarchical inheritance.
+
+8. **Exception Handling:**
+   Exception handling is a mechanism in programming to deal with runtime errors or exceptional situations gracefully, preventing program termination.
+
+9. **try-catch Block:**
+   - `try`: Encloses a block of code where an exception might occur.
+   - `catch`: Catches and handles exceptions thrown in the associated `try` block.
+   ```cpp
+   try {
+       // code that might throw an exception
+   }
+   catch (ExceptionType e) {
+       // handle the exception
+   }
+   ```
+
+Note: Exception handling is an essential aspect of writing robust and fault-tolerant code.
+
 29. `return 0;`: Indicates successful program execution.
 
 
