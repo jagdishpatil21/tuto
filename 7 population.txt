@@ -178,3 +178,44 @@ int main()
 
 - `populationMap.clear()`: Clears all elements from the `populationMap`.
 - `return 0;`: Indicates successful completion of the program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. **Associative Container in C++:**
+   - Stores elements in key-value pairs, facilitating efficient retrieval based on keys.
+
+2. **Map in C++:**
+   - `std::map` is an associative container for sorted key-value pairs.
+
+3. **Declare a Map:**
+   - Use `std::map<KeyType, ValueType> myMap;` for declaration.
+
+4. **Associative Mapping Example:**
+   - `std::map` example associates student IDs with names for quick retrieval.
