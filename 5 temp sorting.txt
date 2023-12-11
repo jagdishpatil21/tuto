@@ -1,0 +1,213 @@
+#include<iostream>
+using namespace std;
+int n;
+#define size 10
+template<class T>
+void sel(T A[size])
+{
+    int i,j,min;
+    T temp;
+    for(i=0;i<n-1;i++)
+    {
+        min=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(A[j]<A[min])
+            min=j;
+        }
+        temp=A[i];
+        A[i]=A[min];
+        A[min]=temp;
+    }
+    cout<<"\nSorted array:";
+    for(i=0;i<n;i++)
+    {
+        cout<<" "<<A[i];
+    }
+}
+
+int main()
+{
+    int A[size];
+    float B[size];
+    int i;
+   
+    cout<<"\nEnter total no of int elements:";
+    cin>>n;
+    cout<<"\nEnter int elements:";
+    for(i=0;i<n;i++)
+    {
+        cin>>A[i];
+    }
+    sel(A);
+   
+    cout<<"\nEnter total no of float elements:";
+    cin>>n;
+    cout<<"\nEnter float elements:";
+    for(i=0;i<n;i++)
+    {
+        cin>>B[i];
+    }
+    sel(B);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Algorithm:
+1. Start
+2. Declare the template parameterT.
+3. Define template function for selectionsort.
+4. In main() Define two arrays, one for integer and another for float.
+and take a input for both the arrays and call sorting function
+template to sort thenumber.
+5. Stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explanation :
+
+
+Certainly! Here's an explanation of the provided C++ code line by line:
+
+1. **Include Header File:**
+   ```cpp
+   #include<iostream>
+   ```
+   - Include the necessary header file for input and output (`iostream`).
+
+2. **Declare Global Variable:**
+   ```cpp
+   int n;
+   ```
+   - Declare a global variable `n` to store the total number of elements.
+
+3. **Define Array Size:**
+   ```cpp
+   #define size 10
+   ```
+   - Define a constant `size` with a value of 10, representing the maximum size of arrays.
+
+4. **Template Function for Selection Sort:**
+   ```cpp
+   template<class T>
+   void sel(T A[size])
+   {
+       // Function body
+   }
+   ```
+   - Define a template function named `sel` that takes an array `A` of type `T` and performs the selection sort algorithm.
+
+5. **Selection Sort Implementation:**
+   ```cpp
+   int i, j, min;
+   T temp;
+   for(i = 0; i < n - 1; i++)
+   {
+       min = i;
+       for(j = i + 1; j < n; j++)
+       {
+           if(A[j] < A[min])
+               min = j;
+       }
+       temp = A[i];
+       A[i] = A[min];
+       A[min] = temp;
+   }
+   ```
+   - Implement the selection sort algorithm to sort the array `A` in ascending order.
+
+6. **Display Sorted Array:**
+   ```cpp
+   cout << "\nSorted array:";
+   for(i = 0; i < n; i++)
+   {
+       cout << " " << A[i];
+   }
+   ```
+   - Print the sorted array elements after sorting.
+
+7. **Main Function:**
+   ```cpp
+   int main()
+   {
+       // Function body
+   }
+   ```
+   - Define the main function, the starting point of the program.
+
+8. **Declare Arrays:**
+   ```cpp
+   int A[size];
+   float B[size];
+   ```
+   - Declare two arrays, one for integers (`A`) and another for floats (`B`).
+
+9. **Accept Input for Integer Array:**
+   ```cpp
+   cout << "\nEnter total no of int elements:";
+   cin >> n;
+   cout << "\nEnter int elements:";
+   for(i = 0; i < n; i++)
+   {
+       cin >> A[i];
+   }
+   ```
+   - Prompt the user to enter the total number of integer elements and then input the integer elements into the array `A`.
+
+10. **Call Selection Sort for Integer Array:**
+    ```cpp
+    sel(A);
+    ```
+    - Call the `sel` template function to perform selection sort on the integer array `A`.
+
+11. **Accept Input for Float Array:**
+    ```cpp
+    cout << "\nEnter total no of float elements:";
+    cin >> n;
+    cout << "\nEnter float elements:";
+    for(i = 0; i < n; i++)
+    {
+        cin >> B[i];
+    }
+    ```
+    - Prompt the user to enter the total number of float elements and then input the float elements into the array `B`.
+
+12. **Call Selection Sort for Float Array:**
+    ```cpp
+    sel(B);
+    ```
+    - Call the `sel` template function to perform selection sort on the float array `B`.
+
+13. **End of Program:**
+    ```cpp
+    return 0;
+    ```
+    - Return 0 to indicate successful program execution. This marks the end of the program.

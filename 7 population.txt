@@ -1,0 +1,180 @@
+#include<iostream>
+#include<map>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    typedef map<string, int> mapType;
+    mapType populationMap;
+
+    populationMap.insert(pair<string, int>("Maharashtra", 7026357));
+    populationMap.insert(pair<string, int>("Rajasthan", 6578936));
+    populationMap.insert(pair<string, int>("Karnataka", 6678993));
+    populationMap.insert(pair<string, int>("Punjab", 5789032));
+    populationMap.insert(pair<string, int>("West Bengal", 6676291));
+
+    mapType::iterator iter;
+
+    cout << "========Population of states in India==========\n";
+    cout << "\n Size of populationMap: " << populationMap.size() << "\n";
+
+    string state_name;
+    cout << "\n Enter name of the state: ";
+    cin >> state_name;
+
+    iter = populationMap.find(state_name);
+
+    if (iter != populationMap.end())
+        cout << state_name << "'s population is " << iter->second;
+    else
+        cout << "Key is not in populationMap" << "\n";
+
+    populationMap.clear();
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Algorithm:
+1. Start.
+2. Give a header file to map associative container.
+3. Insert states name so that we get values as population of that state.
+4. Use populationMap.insert().
+5. Display the population of states.
+6. End.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explanation :
+Sure, let's break down the code line by line:
+
+```cpp
+#include<iostream>
+#include<map>
+#include<string>
+
+using namespace std;
+```
+
+- `#include<iostream>`: Includes the necessary header file for input and output operations.
+- `#include<map>`: Includes the header file for the C++ Standard Template Library (STL) map container.
+- `#include<string>`: Includes the header file for string operations.
+- `using namespace std;`: Enables the use of elements in the standard C++ library (e.g., `cout`, `cin`) without having to prefix them with `std::`.
+
+```cpp
+int main()
+{
+    typedef map<string, int> mapType;
+    mapType populationMap;
+```
+
+- `int main()`: The starting point of the C++ program.
+- `typedef map<string, int> mapType;`: Defines an alias `mapType` for the map container with keys of type `string` and values of type `int`.
+- `mapType populationMap;`: Creates an instance of the map container named `populationMap`.
+
+```cpp
+    populationMap.insert(pair<string, int>("Maharashtra", 7026357));
+    populationMap.insert(pair<string, int>("Rajasthan", 6578936));
+    populationMap.insert(pair<string, int>("Karnataka", 6678993));
+    populationMap.insert(pair<string, int>("Punjab", 5789032));
+    populationMap.insert(pair<string, int>("West Bengal", 6676291));
+```
+
+- `populationMap.insert(pair<string, int>(...))`: Inserts key-value pairs into the `populationMap`.
+- Each pair consists of a state name (string) and its corresponding population (int).
+
+```cpp
+    mapType::iterator iter;
+```
+
+- `mapType::iterator iter;`: Declares an iterator `iter` for iterating over the elements in `populationMap`.
+
+```cpp
+    cout << "========Population of states in India==========\n";
+    cout << "\n Size of populationMap: " << populationMap.size() << "\n";
+```
+
+- `cout << "..."`: Prints messages to the console.
+- `populationMap.size()`: Returns the number of elements in the `populationMap`.
+
+```cpp
+    string state_name;
+    cout << "\n Enter name of the state: ";
+    cin >> state_name;
+```
+
+- `string state_name;`: Declares a string variable `state_name`.
+- `cin >> state_name;`: Reads the user input for the state name.
+
+```cpp
+    iter = populationMap.find(state_name);
+
+    if (iter != populationMap.end())
+        cout << state_name << "'s population is " << iter->second;
+    else
+        cout << "Key is not in populationMap" << "\n";
+```
+
+- `populationMap.find(state_name)`: Searches for the `state_name` in `populationMap`.
+- `iter->second`: Accesses the population value associated with the found state name.
+- The `if` statement checks if the state name was found or not and prints the corresponding message.
+
+```cpp
+    populationMap.clear();
+    
+    return 0;
+}
+```
+
+- `populationMap.clear()`: Clears all elements from the `populationMap`.
+- `return 0;`: Indicates successful completion of the program.

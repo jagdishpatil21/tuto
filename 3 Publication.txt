@@ -1,0 +1,246 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class publication {
+protected:
+    string title;
+    float price;
+
+public:
+    publication() : title(""), price(0.0) {}
+
+    void getData() {
+        cout << "Enter title: ";
+        getline(cin, title);
+
+        cout << "Enter price: ";
+        cin >> price;
+        cin.ignore(); // Ignore the newline character left in the input buffer
+    }
+
+    void displayData() const {
+        cout << "Title: " << title << "\nPrice: $" << price << endl;
+    }
+};
+
+class book : public publication {
+private:
+    int pageCount;
+
+public:
+    book() : pageCount(0) {}
+
+    void getData() {
+        publication::getData(); // Call the base class's getData() function
+
+        cout << "Enter page count: ";
+        cin >> pageCount;
+        cin.ignore(); // Ignore the newline character left in the input buffer
+    }
+
+    void displayData() const {
+        publication::displayData(); // Call the base class's displayData() function
+        cout << "Page Count: " << pageCount << " pages" << endl;
+    }
+};
+
+class tape : public publication {
+private:
+    float playingTime;
+
+public:
+    tape() : playingTime(0.0) {}
+
+    void getData() {
+        publication::getData(); // Call the base class's getData() function
+
+        cout << "Enter playing time (in minutes): ";
+        cin >> playingTime;
+        cin.ignore(); // Ignore the newline character left in the input buffer
+    }
+
+    void displayData() const {
+        publication::displayData(); // Call the base class's displayData() function
+        cout << "Playing Time: " << playingTime << " minutes" << endl;
+    }
+};
+
+int main() {
+    book myBook;
+    tape myTape;
+
+    cout << "Enter data for the book:\n";
+    myBook.getData();
+
+    cout << "\nEnter data for the tape:\n";
+    myTape.getData();
+
+    cout << "\nBook Information:\n";
+    myBook.displayData();
+
+    cout << "\nTape Information:\n";
+    myTape.displayData();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Algorithm:
+1. Start.
+2. Create classes Publication, book and tape.
+3. Publication class having data members title, price.
+4. Class Book having data members pages and member functions getdata() and pudata(). 
+5. Class Tape having data members minutes and member functions getdata() and pudata(). 
+6. Create an object bof class book and object t of class tape.
+7. Stop.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explanation : 
+
+
+
+1. `#include <iostream>`: This line includes the input/output stream header, allowing you to perform input and output operations using streams.
+
+2. `#include <string>`: This line includes the string header, providing functionality for handling strings.
+
+3. `using namespace std;`: This line declares that you're using the standard namespace, which includes standard C++ functionality.
+
+4. `class publication {`: This declares a class named `publication`.
+
+5. `protected:`: This specifies that the members following this keyword are accessible within the class and its derived classes.
+
+6. `string title;`: Declares a string member variable `title` to store the title of the publication.
+
+7. `float price;`: Declares a float member variable `price` to store the price of the publication.
+
+8. `public:`: This specifies that the members following this keyword are accessible from outside the class.
+
+9. `publication() : title(""), price(0.0) {}`: This is the constructor for the `publication` class. It initializes `title` with an empty string and `price` with 0.0.
+
+10. `void getData() { ... }`: This is a member function of the `publication` class that allows the user to input data for the `title` and `price` members.
+
+11. `void displayData() const { ... }`: This member function displays the `title` and `price` of the publication.
+
+12. `class book : public publication {`: This declares a class named `book` that publicly inherits from the `publication` class.
+
+13. `int pageCount;`: Declares an integer member variable `pageCount` to store the page count of the book.
+
+14. `book() : pageCount(0) {}`: This is the constructor for the `book` class, initializing `pageCount` with 0.
+
+15. `void getData() { ... }`: This member function of the `book` class allows the user to input data for the `title`, `price`, and `pageCount` members.
+
+16. `void displayData() const { ... }`: This member function displays the `title`, `price`, and `pageCount` of the book.
+
+17. `class tape : public publication {`: This declares a class named `tape` that publicly inherits from the `publication` class.
+
+18. `float playingTime;`: Declares a float member variable `playingTime` to store the playing time of the tape.
+
+19. `tape() : playingTime(0.0) {}`: This is the constructor for the `tape` class, initializing `playingTime` with 0.0.
+
+20. `void getData() { ... }`: This member function of the `tape` class allows the user to input data for the `title`, `price`, and `playingTime` members.
+
+21. `void displayData() const { ... }`: This member function displays the `title`, `price`, and `playingTime` of the tape.
+
+22. `int main() {`: This is the starting point of the program.
+
+23. `book myBook;`: Declares an object `myBook` of type `book`.
+
+24. `tape myTape;`: Declares an object `myTape` of type `tape`.
+
+25. `myBook.getData();`: Calls the `getData` function for the `myBook` object, allowing the user to input book data.
+
+26. `myTape.getData();`: Calls the `getData` function for the `myTape` object, allowing the user to input tape data.
+
+27. `myBook.displayData();`: Calls the `displayData` function for the `myBook` object, displaying book information.
+
+28. `myTape.displayData();`: Calls the `displayData` function for the `myTape` object, displaying tape information.
+
+29. `return 0;`: Indicates successful program execution.
+
+
+

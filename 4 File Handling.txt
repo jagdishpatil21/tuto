@@ -1,0 +1,227 @@
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+   fstream file; //object of fstream class
+    
+   //opening file "sample.txt" in out(write) mode
+   file.open("sample.txt",ios::out);
+    
+   if(!file)
+   {
+       cout<<"Error in creating file!!!"<<endl;
+       return 0;
+   }
+    
+   cout<<"File created successfully."<<endl;
+   //write text into file
+   file<<"ABCD.";
+   //closing the file
+   file.close();
+    
+   //again open file in read mode
+   file.open("sample.txt",ios::in);
+    
+   if(!file)
+   {
+       cout<<"Error in opening file!!!"<<endl;
+       return 0;
+   }   
+    
+   //read untill end of file is not found.
+   char ch; //to read single character
+   cout<<"File content: ";
+    
+   while(!file.eof())
+   {
+       file>>ch; //read single character from file
+       cout<<ch;
+   }
+    
+   file.close(); //close file
+   return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Algorithm :
+
+1. **Open File in Write Mode:**
+   - Create an object `file` of the `fstream` class.
+   - Open the file named "sample.txt" in write (`ios::out`) mode.
+   - If the file opening fails, print an error message and exit.
+
+2. **Write Data to File:**
+   - Display a success message if the file creation is successful.
+   - Write the string "ABCD." into the file.
+   - Close the file.
+
+3. **Open File in Read Mode:**
+   - Reopen the file "sample.txt" in read (`ios::in`) mode.
+   - If the file opening fails, print an error message and exit.
+
+4. **Read and Display File Content:**
+   - Use a loop to read characters from the file until the end of the file (`file.eof()`).
+   - Inside the loop, read a single character (`file >> ch`) and display it.
+   - Close the file.
+
+5. **End of Program:**
+   - Return 0 to indicate successful execution.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explantion :
+
+1. **Include Header Files:**
+   ```cpp
+   #include <fstream>
+   #include <iostream>
+   ```
+   - Include necessary header files for file input/output (`fstream`) and standard input/output (`iostream`).
+
+2. **Namespace Declaration:**
+   ```cpp
+   using namespace std;
+   ```
+   - Use the `std` namespace to simplify access to standard C++ entities.
+
+3. **Main Function:**
+   ```cpp
+   int main()
+   {
+   ```
+   - The starting point of the program.
+
+4. **Filestream Object Creation:**
+   ```cpp
+      fstream file; //object of fstream class
+   ```
+   - Declare an object named `file` of the `fstream` class for file operations.
+
+5. **Open File in Write Mode:**
+   ```cpp
+      file.open("sample.txt", ios::out);
+   ```
+   - Open the file named "sample.txt" in write (`ios::out`) mode.
+
+6. **Check File Opening:**
+   ```cpp
+      if (!file)
+      {
+          cout << "Error in creating file!!!" << endl;
+          return 0;
+      }
+   ```
+   - Check if the file opening was successful. If not, print an error message and exit the program.
+
+7. **Display Success Message:**
+   ```cpp
+      cout << "File created successfully." << endl;
+   ```
+   - Print a success message indicating that the file creation was successful.
+
+8. **Write Text to File:**
+   ```cpp
+      file << "ABCD.";
+   ```
+   - Write the string "ABCD." into the file.
+
+9. **Close the File:**
+   ```cpp
+      file.close();
+   ```
+   - Close the file.
+
+10. **Open File in Read Mode:**
+   ```cpp
+      file.open("sample.txt", ios::in);
+   ```
+   - Reopen the file "sample.txt" in read (`ios::in`) mode.
+
+11. **Check File Opening:**
+   ```cpp
+      if (!file)
+      {
+          cout << "Error in opening file!!!" << endl;
+          return 0;
+      }
+   ```
+   - Check if the file opening was successful. If not, print an error message and exit the program.
+
+12. **Read and Display File Content:**
+   ```cpp
+      char ch; //to read single character
+      cout << "File content: ";
+      while (!file.eof())
+      {
+          file >> ch; //read single character from file
+          cout << ch;
+      }
+   ```
+   - Use a loop to read characters from the file until the end of the file is reached (`file.eof()`).
+   - Read a single character at a time and display it on the console.
+
+13. **Close the File:**
+   ```cpp
+      file.close(); //close file
+   ```
+   - Close the file.
+
+14. **End of Program:**
+   ```cpp
+      return 0;
+   }
+   ```
+   - Return 0 to indicate successful execution. This marks the end of the program.

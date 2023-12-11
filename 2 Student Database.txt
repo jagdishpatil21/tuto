@@ -1,0 +1,309 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+#define max 100
+
+class per_info
+{
+    string lic, dob, bldgrp;
+    public:
+    per_info();
+    per_info(per_info &);
+    ~per_info()
+    {
+        cout<<"\nDESTRUCTOR IS CALLED!!!!!\nRECORD DELETED SUCCESSFULLY\n";
+    }
+    friend class student;
+};
+
+class student
+{
+    string name, address, year;
+    char div;
+    int roll_no;
+    long mob;
+    static int cnt;
+    public:
+    void create(per_info &);
+    void display(per_info &);
+    
+    inline static void inccnt()
+    {
+        cnt++;
+    }
+
+    inline static void showcnt()
+    {
+        cout<<"\nTOTAL NO OF RECORDS ARE : "<<cnt;
+    }
+
+    student();
+    student(student &);
+    ~student()
+    {
+        cout<<"\nDESTRUCTOR IS CALLED!!!\nRECORD DELETED SUCCESSFULLY\n";
+    }
+};
+
+int student::cnt;
+
+student::student()
+{
+    name="SUJAL GOSAVI";
+    address="B No.6 , Maharashtra Hsg. Soc. ,Nashik";
+    year="SE COMPUTER";
+    div='A';
+    roll_no=2068;
+    mob=7517379906;
+}
+
+per_info::per_info()
+{
+    lic="ABD45656";
+    dob="02/11/1997";
+    bldgrp="B+";
+}
+
+student::student(student &obj)
+{
+    this->name=obj.name;
+    this->address=obj.address;
+    this->year=obj.year;
+    this->div=obj.div;
+    this->roll_no=obj.roll_no;
+    this->mob=obj.mob;
+}
+
+per_info::per_info(per_info &obj)
+{
+    lic=obj.lic;
+    dob=obj.dob;
+    bldgrp=obj.bldgrp;
+}
+
+void student::create(per_info &obj)
+{
+    cout<<"\nNAME : ";
+    cin>>name;
+    cout<<"\nADDRESS : ";
+    cin>>address;
+    cout<<"\nDATE OF BIRTH : ";
+    cin>>obj.dob;
+    cout<<"\nYEAR : ";
+    cin>>year;
+    cout<<"\nDIVISION: ";
+    cin>>div;
+    cout<<"\nROLL NUMBER : ";
+    cin>>roll_no;
+    cout<<"\nBLOOD GROUP : ";
+    cin>>obj.bldgrp;
+    cout<<"\nLICEINCE NUMBER : ";
+    cin>>obj.lic;
+    cout<<"\nPHONE NUMBER : ";
+    cin>>mob;
+}
+
+void student::display(per_info &obj)
+{
+    cout<<"\n***********************";
+    cout<<"\nNAME OF STUDENT : "<<name;
+    cout<<"\nADDRESS OF STUDENT : "<<address;
+    cout<<"\nDATE OF BIRTH : "<<obj.dob;
+    cout<<"\nYEAR : "<<year;
+    cout<<"\nDIVISION : "<<div;
+    cout<<"\nROLL NO : "<<roll_no;
+    cout<<"\nBLOOD GROUP : "<<obj.bldgrp;
+    cout<<"\nLICEINCE NUMBER : "<<obj.lic;
+    cout<<"\nPHONE NUMBER : "<<mob;
+    cout<<"\n***********************";
+}
+
+int main()
+{
+    int n, ch;
+    char ans;
+    
+    cout<<"\nENTER NO OF STUDENTS :";
+    cin>>n;
+    cout<<"\n***********************";
+    
+    student *sobj=new student[n];
+    per_info *pobj=new per_info[n];
+    
+    do
+    {
+        cout<<"\n Menu \n 1. Create Database \n 2. Display Databse \n 3. Copy Constructor\n 4. Default Constructor \n 5. Delete (Destructor)";
+        cout<<"\n Enter your Choice: ";
+        cin>>ch;
+        switch(ch)
+        {
+            case 1:
+            {
+                for(int i=0;i<n;i++)
+                {
+                    sobj[i].create(pobj[i]);
+                    sobj[i].inccnt();
+                }
+            }
+            break;
+            
+            case 2:
+            {
+                sobj[0].showcnt();
+                for(int i=0;i<n;i++)
+                {
+                    sobj[i].display(pobj[i]);
+                }
+            }
+            break;
+            
+            case 3:
+            {
+                student obj1;
+                per_info obj2;
+                obj1.create(obj2);
+                student obj3(obj1);
+                per_info obj4(obj2);
+                cout<<"\n Copy Constructor is called ";
+                obj3.display(obj4);
+            }
+            break;
+            
+            case 4:
+            {
+                student obj1;
+                per_info obj2;
+                cout<<"\n Default Constructor is called ";
+                obj1.display(obj2);
+            }
+            break;
+            
+            case 5:
+            {
+                delete [] sobj;
+                delete [] pobj;
+            }
+        }
+        cout<<"\n Want to continue:(y/n)";
+        cin>>ans;
+    } while(ans=='y');
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Algorithm :
+Here's a simplified algorithm based on the comments:
+
+1. **Class Definitions:**
+   - Define `per_info` class for personal information with `lic`, `dob`, and `bldgrp`.
+   - Define `student` class for student information with `name`, `address`, `year`, `div`, `roll_no`, and `mob`. Include a static variable `cnt`.
+
+2. **Constructors and Destructor:**
+   - Implement default and copy constructors for both classes.
+   - Implement destructors to display deletion messages.
+
+3. **Member Functions:**
+   - Implement `create` in `student` to input student and personal info.
+   - Implement `display` in `student` to display student and personal info.
+
+4. **Static Member Functions:**
+   - Implement `inccnt` to increment the count of student records.
+   - Implement `showcnt` to display the total count of student records.
+
+5. **Main Function:**
+   - Read the number of students (`n`).
+   - Dynamically allocate arrays for `student` and `per_info`.
+   - Use a loop for the menu:
+      - Create Database: Input info for each student, increment count.
+      - Display Database: Display count and student info.
+      - Copy Constructor: Copy and display information.
+      - Default Constructor: Display default information.
+      - Delete (Destructor): Deallocate memory.
+
+6. **Repeat or Exit:**
+   - Ask the user to continue (`y` or `n`).
+   - Repeat the loop if the user wants to continue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explanation:
+Sure, let's explain the code without including the actual code:
+
+1. **Header and Namespace:**
+   - The code includes necessary headers for input/output and string operations.
+   - It uses the `std` namespace for convenience in using `cout` and `cin`.
+
+2. **Class Definitions:**
+   - Two classes are defined: `per_info` for personal information and `student` for student details.
+   - `per_info` has private members `lic`, `dob`, and `bldgrp`, along with constructors and a destructor.
+   - `student` contains information such as `name`, `address`, and `mob`. It has static member `cnt` to count records.
+
+3. **Member Functions:**
+   - Both classes have functions for creating, displaying, and copying objects.
+   - `create` function allows user input for student and personal information.
+   - `display` function shows the stored information.
+   - `inccnt` and `showcnt` are static functions for counting and displaying the total number of records.
+
+4. **Static Member and Constructors:**
+   - `cnt` is a static member of the `student` class to keep track of the number of records.
+   - Default and copy constructors are defined for both classes.
+
+5. **Main Function:**
+   - The `main` function dynamically allocates arrays of `student` and `per_info` objects based on user input.
+   - A menu is displayed to the user with options like creating, displaying, and copying records.
+   - The user can choose to continue or exit the program.
+
+6. **Menu Handling:**
+   - The program uses a switch statement to execute different actions based on the user's menu choice.
+   - Options include creating records, displaying records, invoking copy constructors, and dealing with memory deallocation.
+
+7. **Dynamic Memory Allocation:**
+   - Dynamic memory is allocated for arrays of `student` and `per_info` objects using the `new` operator.
+   - Memory is released using the `delete` operator before program termination.
+
+8. **Destructor:**
+   - Destructors are called when objects go out of scope or when memory is explicitly deallocated using `delete`.
+   - Destructors display a message indicating their invocation and the successful deletion of records.
+
+9. **User Interaction:**
+   - The program prompts the user for the number of students and allows them to perform various operations through the menu.
+   - It provides a user-friendly interface for creating, displaying, and managing student records.
+
+In summary, the code is an implementation of a simple student database management system with functionality for creating, displaying, copying records, and handling memory dynamically. The menu-driven approach allows users to interact with the program efficiently.
+

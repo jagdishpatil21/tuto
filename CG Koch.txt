@@ -1,0 +1,215 @@
+#include <iostream>
+#include <math.h>
+#include <graphics.h>
+
+using namespace std;
+
+class KochCurve {
+public:
+    void koch(int it, int x1, int y1, int x5, int y5) {
+        int x2, y2, x3, y3, x4, y4;
+        int dx, dy;
+
+        if (it == 0) {
+            line(x1, y1, x5, y5);
+        } else {
+            delay(10);
+            dx = (x5 - x1) / 3;
+            dy = (y5 - y1) / 3;
+            x2 = x1 + dx;
+            y2 = y1 + dy;
+            x3 = (int)(0.5 * (x1 + x5) + sqrt(3) * (y1 - y5) / 6);
+            y3 = (int)(0.5 * (y1 + y5) + sqrt(3) * (x5 - x1) / 6);
+            x4 = 2 * dx + x1;
+            y4 = 2 * dy + y1;
+
+            koch(it - 1, x1, y1, x2, y2);
+            koch(it - 1, x2, y2, x3, y3);
+            koch(it - 1, x3, y3, x4, y4);
+            koch(it - 1, x4, y4, x5, y5);
+        }
+    }
+};
+
+int main() {
+    KochCurve k;
+    int it;
+
+    cout << "Enter Number Of Iterations : " << endl;
+    cin >> it;
+
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, NULL);
+
+    k.koch(it, 150, 20, 20, 280);
+    k.koch(it, 280, 280, 150, 20);
+    k.koch(it, 20, 280, 280, 280);
+
+    getch();
+    closegraph();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Algorithm :
+
+1. **Include necessary libraries:**
+   - iostream, math, graphics.
+
+2. **Define a class `KochCurve`:**
+   - Public method `koch(it, x1, y1, x5, y5)` draws a Koch curve recursively:
+     - If `it` is 0, draw a line between (`x1, y1`) and (`x5, y5`).
+     - Otherwise, calculate intermediate points (`x2, y2, x3, y3, x4, y4`) and recursively call `koch` for each segment.
+
+3. **Define `main` function:**
+   - Create an instance of `KochCurve`.
+   - Read `it` from user input.
+   - Initialize graphics window with `initgraph`.
+   - Draw three Koch curves with different starting points.
+   - Close graphics window with `closegraph`.
+
+4. **Input:**
+   - Read `it` (number of iterations) from user.
+
+5. **Output:**
+   - Display three Koch curves in a graphics window.
+
+6. **Note:**
+   - The `delay(10)` function is used for visualization delay.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Explanation :
+Sure, let's go through the code line by line in a simple way:
+
+1. `#include <iostream>`: Include the input/output stream library for handling console input and output.
+
+2. `#include <math.h>`: Include the math library for mathematical operations.
+
+3. `#include <graphics.h>`: Include the graphics library for handling graphical operations. Note that this is specific to some compilers and might not work in all environments.
+
+4. `using namespace std;`: Use the standard namespace for simplicity in code.
+
+5. `class KochCurve {`: Start the definition of a class named `KochCurve`.
+
+6. `public:`: Declare the following members as public.
+
+7. `void koch(int it, int x1, int y1, int x5, int y5) {`: Start the definition of a method named `koch` that takes parameters `it` (number of iterations) and four sets of coordinates `(x1, y1)` to `(x5, y5)`.
+
+8. `int x2, y2, x3, y3, x4, y4;`: Declare six integer variables to store intermediate coordinates.
+
+9. `int dx, dy;`: Declare two variables to store the differences in x and y coordinates.
+
+10. `if (it == 0) {`: Check if the number of iterations is zero.
+
+    - `line(x1, y1, x5, y5);`: If true, draw a line between the initial and final coordinates.
+
+11. `} else {`: If the number of iterations is not zero, execute the following block:
+
+    - `delay(10);`: Introduce a delay of 10 milliseconds for visualization.
+
+    - `dx = (x5 - x1) / 3;`: Calculate the difference in x coordinates divided by 3.
+
+    - `dy = (y5 - y1) / 3;`: Calculate the difference in y coordinates divided by 3.
+
+    - `x2 = x1 + dx;`: Calculate the x-coordinate of the second point.
+
+    - `y2 = y1 + dy;`: Calculate the y-coordinate of the second point.
+
+    - `x3 = (int)(0.5 * (x1 + x5) + sqrt(3) * (y1 - y5) / 6);`: Calculate the x-coordinate of the third point.
+
+    - `y3 = (int)(0.5 * (y1 + y5) + sqrt(3) * (x5 - x1) / 6);`: Calculate the y-coordinate of the third point.
+
+    - `x4 = 2 * dx + x1;`: Calculate the x-coordinate of the fourth point.
+
+    - `y4 = 2 * dy + y1;`: Calculate the y-coordinate of the fourth point.
+
+    - `koch(it - 1, x1, y1, x2, y2);`: Recursively call `koch` for the first segment.
+
+    - `koch(it - 1, x2, y2, x3, y3);`: Recursively call `koch` for the second segment.
+
+    - `koch(it - 1, x3, y3, x4, y4);`: Recursively call `koch` for the third segment.
+
+    - `koch(it - 1, x4, y4, x5, y5);`: Recursively call `koch` for the fourth segment.
+
+12. `}`: End of the else block.
+
+13. `};`: End of the `koch` method.
+
+14. `};`: End of the `KochCurve` class definition.
+
+15. `int main() {`: Start the definition of the `main` function.
+
+16. `KochCurve k;`: Create an instance of the `KochCurve` class named `k`.
+
+17. `int it;`: Declare an integer variable to store the number of iterations.
+
+18. `cout << "Enter Number Of Iterations : " << endl;`: Display a message to prompt the user to enter the number of iterations.
+
+19. `cin >> it;`: Read the number of iterations from the user.
+
+20. `int gd = DETECT, gm;`: Declare integer variables for graphics mode and graphics driver.
+
+21. `initgraph(&gd, &gm, NULL);`: Initialize the graphics system.
+
+22. `k.koch(it, 150, 20, 20, 280);`: Call the `koch` method to draw a Koch curve with the specified parameters.
+
+23. `k.koch(it, 280, 280, 150, 20);`: Call the `koch` method to draw another Koch curve.
+
+24. `k.koch(it, 20, 280, 280, 280);`: Call the `koch` method to draw yet another Koch curve.
+
+25. `getch();`: Wait for a key press.
+
+26. `closegraph();`: Close the graphics system.
+
+27. `return 0;`: Return 0 to indicate successful execution of the program.
+
+28. `}`: End of the `main` function.
