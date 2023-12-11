@@ -314,3 +314,52 @@ Explanation :
     - **Compare Function (`bool compare(const Item& i1, const Item& i2)`):**
       - Compares `Item` objects based on their costs for sorting.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+STL (Standard Template Library):
+STL stands for the Standard Template Library in C++. It is a powerful set of C++ template classes to provide general-purpose classes and functions with templates that implement many popular and commonly used algorithms and data structures.
+
+Four Components of STL:
+
+Algorithms: A set of powerful template functions to perform operations on sequences of elements, such as sorting, searching, and manipulation.
+Containers: Pre-built classes to hold and manipulate collections of data, like vectors, lists, and queues.
+Functions: Function objects or functors that can be used as arguments to algorithms.
+Iterators: Objects that allow the traversal of elements in a container, enabling algorithms to work with different data structures.
+Sorting:
+Sorting is the process of arranging elements in a specific order, typically ascending or descending. In C++, the STL provides the std::sort algorithm, which can be used to sort elements in a range defined by iterators.
+
+Searching:
+Searching involves finding the position or existence of a particular element in a collection. The STL provides algorithms like std::find for linear search and std::binary_search for binary search. Containers like vectors and arrays need to be sorted before using binary search.
+
+Vector Container:
+In C++, a vector is a dynamic array that can grow or shrink in size. It is part of the STL and is implemented as the std::vector template class. Vectors provide fast access to elements and efficient insertion and deletion at the end. They are useful when a dynamic array with automatic resizing is needed.
+
+
+
+
+
