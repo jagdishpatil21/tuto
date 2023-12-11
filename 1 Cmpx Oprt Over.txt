@@ -195,3 +195,79 @@ Sure, let's go through the code line by line:
 24. `cout << "Multiplication : " << c3;`: Displays the result of the multiplication operation.
 
 That's the explanation of the code! It's a simple program that demonstrates operator overloading for complex numbers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. **Operator Overloading:**
+   Operator overloading is a feature in C++ that allows defining multiple behaviors for operators depending on the context of their use, enabling custom functionality for user-defined types.
+
+2. **Rules for Overloading Operators:**
+   - Cannot create new operators.
+   - Cannot change the precedence and associativity of operators.
+   - Cannot overload operators for primitive types.
+
+3. **Operators Overloaded:**
+   - `+`, `-`, `*`, `/`, `%`, `==`, `!=`, `<`, `<=`, `>`, `>=`, `=`, `[]`, `()`, `->`
+   - Assignment operators (`=`, `+=`, `-=`) are usually overloaded as member functions.
+
+   **Operators Not Overloaded:**
+   - `.` (member access), `.*` (member pointer access), `::` (scope resolution), `?:` (conditional), `sizeof`, `typeid`, `new`, `delete`.
+
+4. **Need for Overloading Operators:**
+   - Provides a natural and intuitive syntax for user-defined types.
+   - Enables objects to mimic built-in types.
+
+5. **Overloading Operators using Friend Function:**
+   - Friend functions are not members of a class but have access to its private members.
+   - Example:
+     ```cpp
+     class Complex {
+         double real, imag;
+     public:
+         friend Complex operator+(const Complex& c1, const Complex& c2);
+     };
+     ```
+
+6. **Difference Between "Overloading" and "Overriding":**
+   - **Overloading:** Provides multiple definitions for the same operator or function in the same scope.
+   - **Overriding:** Involves providing a different implementation for a function in a derived class, maintaining the same function signature as the base class.
+
+7. **Operator Function Syntax:**
+   - For binary operators: `returnType operator@(const Type& obj1, const Type& obj2);`
+   - For unary operators: `returnType operator@(const Type& obj);`
+
+8. **Friend Function Compulsory:**
+   - When overloading binary operators that are not members of the class.
+   - Example:
+     ```cpp
+     class MyClass {
+         int data;
+     public:
+         friend MyClass operator+(const MyClass& obj1, const MyClass& obj2);
+     };
+     ```
