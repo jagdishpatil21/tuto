@@ -170,7 +170,11 @@ Exit Option:
 
 Exit the program.
 
-
+TC :
+Insertion: O(1) (amortized)
+Display: O(n)
+Search: O(n)
+Sort: O(n log n)
 
 
 
