@@ -256,3 +256,14 @@ Certainly! Let's break down the concepts without examples:
 
 5. **Template with Non-type Argument:**
    In addition to using templates with types, C++ allows templates to have non-type parameters. Instead of specifying a data type, you can pass a value as a parameter to a template. This is useful when the template needs to work with a specific constant value during compilation.
+
+
+
+
+
+
+
+
+
+
+
